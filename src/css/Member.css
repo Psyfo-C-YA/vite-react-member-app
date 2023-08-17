@@ -1,0 +1,45 @@
+.Member__Container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 8px 7px 11px -6px rgba(0, 0, 0, 0.44);
+  margin-top: 2rem;
+  width: 50rem;
+}
+
+.Member__Img {
+  width: 4rem;
+  height: 4rem;
+  background-color: bisque;
+  border-radius: 50%;
+  margin-left: 1rem;
+}
+
+.Member__Text {
+  font-size: small;
+  margin-left: -10rem;
+}
+
+.Member__Icons {
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.Member__Icon {
+  cursor: pointer;
+}
+
+.Member__Icon:hover {
+  transform: scale(1.05);
+}
+
+.Member__Message {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  font-weight: 500;
+}

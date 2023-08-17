@@ -1,0 +1,16 @@
+{
+  "members": [
+    {
+      "name": "Siyabonga",
+      "job": "CEO",
+      "selectedImage": "blob:http://localhost:5173/c7633eda-b981-46cc-a56a-baaa18d2688a",
+      "id": 2
+    },
+    {
+      "name": "Psyfo HAdebe",
+      "job": "CFO",
+      "selectedImage": "blob:http://localhost:5173/e7535c42-7bd6-4e68-9b21-cc984a5b9855",
+      "id": 3
+    }
+  ]
+}
