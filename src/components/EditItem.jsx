@@ -40,9 +40,10 @@ const EditItem = () => {
   const handleEdit = async (e) => {
     e.preventDefault();
 
+    // const memberIdToDelete = editedMember[index].id;
+
     try {
       const updatedMember = {
-        id: editedMember.id,
         image,
         name,
         job,
@@ -65,6 +66,17 @@ const EditItem = () => {
     }
   };
 
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setImage(event.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div>
       <form className="add-form " onSubmit={handleEdit}>
@@ -82,11 +94,7 @@ const EditItem = () => {
               className="Member__Img-icon"
             />
             {image && (
-              <img
-                className="Member-Uploaded-Img"
-                src={editedMember.image}
-                alt=""
-              />
+              <img className="Member-Uploaded-Img" src={image} alt="" />
             )}
           </div>
           <div className="Member__AddImage-Box">
@@ -98,7 +106,7 @@ const EditItem = () => {
             <input
               className="Member_Choose-File-Input"
               type="file"
-              onChange={(e) => setImage(e.target.files[0])}
+              onChange={handleImageUpload}
             />
           </div>
         </div>
@@ -107,7 +115,7 @@ const EditItem = () => {
           <input
             type="text"
             placeholder="Full Names"
-            value={editedMember.name}
+            value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
@@ -115,7 +123,7 @@ const EditItem = () => {
           <input
             type="text"
             placeholder="Job Title"
-            value={editedMember.job}
+            value={job}
             onChange={(e) => setJob(e.target.value)}
           />
         </div>

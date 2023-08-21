@@ -1,7 +1,7 @@
 // src/components/Home.js
 import { useState, useEffect } from 'react';
 // import { useHistory } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import '../css/App.css';
 import '../css/index.css';
 import { useNavigate } from 'react-router-dom';
@@ -13,7 +13,7 @@ const Home = () => {
   const [data, setData] = useState([]);
   // const history = useHistory();
   const navigate = useNavigate();
-  const { id } = useParams();
+  // const { id } = useParams();
 
   useEffect(() => {
     axios
@@ -52,8 +52,8 @@ const Home = () => {
       </button>
       <div>
         <ul>
-          {data.map((item, index) => (
-            <li key={index} className={'Member__Container'}>
+          {data.map((item, id) => (
+            <li key={id} className={'Member__Container'}>
               <img className="Member__Img" src={item.image} alt={item.name} />
               <div className="Member__Text">
                 <p> {item.name}</p>
@@ -64,7 +64,7 @@ const Home = () => {
                   icon={faPencil}
                   size="lg"
                   className="Member__Icon"
-                  onClick={() => navigate(`/edit/${index}`)}
+                  onClick={() => navigate(`/edit/${id + 1}`)}
                 />
 
                 <FontAwesomeIcon
@@ -72,7 +72,7 @@ const Home = () => {
                   size="lg"
                   className="Member__Icon"
                   onClick={() => {
-                    handleDelete(index);
+                    handleDelete(id);
                     // window.location.reload();
                   }}
                 />
